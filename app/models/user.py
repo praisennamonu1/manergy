@@ -1,5 +1,4 @@
-from .. import db, login_mgr
-from .base import Base
+from .base import Base, db
 from flask_login import UserMixin, AnonymousUserMixin
 from flask import current_app
 from ..common.error_classes import RestrictionError
@@ -121,11 +120,6 @@ class User(UserMixin, Base):
                 self.role = Role.get_one_by(name='Administrator')
             if self.role is None:
                 self.role = Role.get_one_by(default=True)
-    
-    @staticmethod
-    @login_mgr.user_loader
-    def load_user(user_id):
-        return User.query.get(int(user_id))
 
     def verify_password(self, password):
         """Verify that the password passed is valid and correct."""
@@ -144,12 +138,3 @@ class AnonymousUser(AnonymousUserMixin):
 
     def is_admin(self):
         return False
-
-
-# make flask login aware of the custom anonymous user class
-login_mgr.anonymous_user = AnonymousUser
-
-# add the Permission class to the template context
-@current_app.context_processor
-def inject_permissions():
-    return dict(Permission=Permission)

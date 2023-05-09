@@ -8,7 +8,7 @@
       href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}" />
     <title>Registration</title>
   </head>
   <body>
@@ -108,7 +108,7 @@
         <div class="panel left-panel">
           <div class="content">
             <div style="position: absolute; left: 15px; top: 10px">
-              <img src="/images/manergy_logo.png" class="udeme" alt="LOGO" />
+              <img src="{{url_for('static', filename='/images/manergy_logo.png')}}" class="udeme" alt="LOGO" />
             </div>
             <h3>New here?</h3>
             <p>
@@ -117,7 +117,7 @@
             <button class="btn transparent" id="sign-up-btn">Sign up</button>
           </div>
           <img
-            src="/images/signup.jpeg"
+            src="{{url_for('static', filename='/images/signup.jpeg')}}"
             class="image"
             alt=""
           />
@@ -125,7 +125,7 @@
         <div class="panel right-panel">
           <div class="content">
             <div style="position: absolute; left: 520px; top: -75px">
-              <img src="/images/manergy_logo.png" class="udeme" alt="LOGO" />
+              <img src="{{url_for('static', filename='images/manergy_logo.png')}}" class="udeme" alt="LOGO" />
             </div>
             <h3>One of us?</h3>
             <p>
@@ -135,7 +135,7 @@
             <button class="btn transparent" id="sign-in-btn">Sign in</button>
           </div>
           <img
-            src="/images/login.jpeg"
+            src="{{url_for('static', filename='images/login.jpeg')}}"
             class="image"
             id="image"
             alt=""
@@ -144,6 +144,6 @@
       </div>
     </div>
 
-    <script src="login.js"></script>
+    <script src="{{url_for('static', filename='js/login.js')}}"></script>
   </body>
 </html>

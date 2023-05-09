@@ -1,15 +1,13 @@
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
 from .config import Config
-from flask_login import LoginManager
 from flask_migrate import Migrate
 from dotenv import load_dotenv
+from .common.helpers import login_mgr
+from .models import db, Permission
 
 load_dotenv()
 
 # Create an instance of all required extensions
-db = SQLAlchemy()
-login_mgr = LoginManager()
 migrate = Migrate()
 
 
@@ -20,6 +18,11 @@ def create_app():
     # configure application
     app.config.from_object(config)
     config.init_app(app)
+
+    # add the Permission class to the template context
+    @app.context_processor
+    def inject_permissions():
+        return dict(Permission=Permission)
 
     # Initialize the database and extensions
     db.init_app(app)

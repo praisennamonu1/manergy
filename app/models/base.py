@@ -1,9 +1,12 @@
 # This imports the required models and classes
-from .. import db
 from slugify import slugify
 from uuid import uuid4
 import random
 from sqlalchemy.sql import func
+from flask_sqlalchemy import SQLAlchemy
+
+# start the connection to the database
+db = SQLAlchemy()
 
 
 # Implement base model here

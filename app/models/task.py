@@ -1,5 +1,4 @@
-from .. import db
-from .base import Base
+from .base import Base, db
 from enum import Enum
 
 
