@@ -101,6 +101,10 @@ class User(UserMixin, Base):
     occupation = db.Column(db.String(64))
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
+    # relationships
+    tasks = db.relationship('Task', backref='user', lazy='dynamic')
+    routines = db.relationship('Routine', backref='user', lazy='dynamic')
+
     @property
     def password(self):
         raise RestrictionError()
