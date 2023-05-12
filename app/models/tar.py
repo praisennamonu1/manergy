@@ -35,9 +35,9 @@ class TaskPriority(Enum):
 
 task_routine = db.Table('task_routine',
                         db.Column('task_id', db.Integer, db.ForeignKey(
-                            'task.id'), primary_key=True),
+                            'tasks.id'), primary_key=True),
                         db.Column('routine_id', db.Integer, db.ForeignKey(
-                            'routine.id'), primary_key=True)
+                            'routines.id'), primary_key=True)
                         )
 
 
@@ -60,8 +60,12 @@ class Task(Base):
 
     # relationships
     routines = db.relationship(
-        'Routine', secondary=task_routine, backref=db.backref('tasks', lazy='dynamic'))
-    
+        'Routine', secondary=task_routine,
+        primaryjoin='Task.id == task_routine.c.task_id',
+        secondaryjoin='Routine.id == task_routine.c.routine_id',
+        backref=db.backref('tasks', lazy='dynamic')
+    )
+
     @property
     def status(self):
         return self.status
