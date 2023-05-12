@@ -1,6 +1,6 @@
 from . import auth_bp
 from flask import render_template, request, redirect, url_for, flash
-from ..models import User, db
+from ..models import User
 from flask_login import login_user
 
 
@@ -29,7 +29,7 @@ def signup():
             # log user in
             login_user(new_user, remember=True, duration=3600 * 3)
             # redirect to dashboard
-            return redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.index'))
     else:
         # handle invalid form data
         flash('Please fill in all the required fields.', 'error')
