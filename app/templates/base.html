@@ -15,7 +15,7 @@
    <body>
         <!-- Navigation bar -->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a class="navbar-brand" href="{{ url_for('home_page')}}">Manergy</a>
+            <a class="navbar-brand" href="{{ url_for('auth.home_page')}}">Manergy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,7 +33,7 @@
                         <a class="nav-link" href="#">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('signup')}}">Sign Up</a>
+                        <a class="nav-link" href="{{ url_for('auth.signup')}}">Sign Up</a>
                     </li>
                 </ul>
             </div>
