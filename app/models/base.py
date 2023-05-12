@@ -19,7 +19,7 @@ class Base(db.Model):
                    default=lambda: uuid4().hex)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
-    slugname = db.Column(db.String(255), unique=True, nullable=False)
+    slugname = db.Column(db.String(255))
     
     @classmethod
     def get_all(cls):

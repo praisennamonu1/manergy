@@ -96,8 +96,8 @@ class User(UserMixin, Base):
     email = db.Column(db.String(128), unique=True, nullable=False)
     password = db.Column(db.String(64), nullable=False)
     hashed_password = db.Column(db.String(128))
-    birth_date = db.Column(db.Date(), nullable=False)
-    gender = db.Column(db.String(16), nullable=False)
+    birth_date = db.Column(db.Date())
+    gender = db.Column(db.String(16))
     occupation = db.Column(db.String(64))
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 

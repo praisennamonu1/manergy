@@ -27,7 +27,7 @@ def signup():
             new_user = User(firstname=fname, lastname=lname, email=email, password=password)
             new_user.save()
             # log user in
-            login_user(new_user, remember=True, duration=3600 * 3)
+            login_user(new_user)
             # redirect to dashboard
             return redirect(url_for('main.dashboard'))
     else:
