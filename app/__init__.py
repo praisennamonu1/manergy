@@ -33,4 +33,7 @@ def create_app():
     from .auth import auth_bp
     app.register_blueprint(auth_bp)
 
+    from .main import main_bp
+    app.register_blueprint(main_bp)
+
     return app

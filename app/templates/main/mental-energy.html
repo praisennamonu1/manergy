@@ -13,7 +13,7 @@
     <nav>
       <div class="logo">Manergy</div>
       <ul>
-        <li><a href="/index.html">Home</a></li>
+        <li><a href="{{url_for('main.index')}}">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
@@ -61,15 +61,15 @@
     <h2>Tips</h2>
     <ul>
         <li>
-            <img src="/images/breathing-exercise-.avif" alt="Image 1">
+            <img src="{{url_for('static', filename='images/breathing-exercise.avif')}}" alt="Image 1">
             <span>Practice deep breathing exercises to reduce stress and calm your mind.</span>
           </li>
           <li>
-            <img src="/images/physical-energy-icon.avif" alt="Image 2">
+            <img src="{{url_for('static', filename='images/physical-energy-icon.avif')}}" alt="Image 2">
             <span>Engage in regular physical exercise to boost your mood and improve mental well-being.</span>
           </li>
           <li>
-            <img src="/images/self-care.avif" alt="Image 3">
+            <img src="{{url_for('static', filename='images/self-care.avif')}}" alt="Image 3">
             <span>Prioritize self-care activities such as getting enough sleep and practicing relaxation techniques.</span>
           </li>
     </ul>
