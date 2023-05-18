@@ -27,6 +27,11 @@ class Base(db.Model):
         return cls.query.all()
     
     @classmethod
+    def get_by_attrs(cls, **attrs):
+        """Get records that satifies the conditions given by the given attributes."""
+        return cls.query.filter_by(**attrs).all()
+    
+    @classmethod
     def get_one_by(cls, **attrs):
         """Get a record by given attributes."""
         return cls.query.filter_by(**attrs).first()
