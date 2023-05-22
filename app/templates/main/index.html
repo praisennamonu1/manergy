@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="logo">Manergy</div>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Get the Most Out of Your Energy</h1>
+          <p>Manage your mental and physical energy to maximize productivity and well-being.</p>
+          <a href="{{url_for('auth.index')}}" class="btn">Sign Up</a>
+        </div>
+      </section>
+    
+      <section class="features">
+        <a href="{{url_for('main.mental_energy')}}">
+        <div class="feature">
+          <img src="{{url_for('static', filename='images/mental-energy-icon.avif')}}"
+            alt="Conservation of Mental Energy">
+          <h2>Conservation of Mental Energy</h2>
+          <p>Discover activities that waste mental energy and receive tips to increase efficiency.</p>
+        </div>
+        </a>
+        <div class="feature">
+        <a href="#physical-energy">
+          <img src="{{url_for('static', filename='images/physical-energy-icon.avif')}}"
+            alt="Conservation of Physical Energy">
+          <h2>Conservation of Physical Energy</h2>
+          <p>Track and monitor your daily activities, get recommendations, and improve your physical energy.</p>
+        </a>
+        </div>
+        <div class="feature">
+        <a href="#time-management">
+          <img src="{{url_for('static', filename='images/time-management-icon.avif')}}" alt="Conservation of Time">
+          <h2>Conservation of Time</h2>
+          <p>Organize and plan your activities, achieve growth in every aspect of your life, and create free time for self-improvement.</p>
+        </a>
+        </div>
+      </section>
+    
+      <footer>
+        <p>&copy; 2023 Manergy. All rights reserved.</p>
+      </footer>
+    
+      <script src="main.js"></script>
+</body>
+</html>
