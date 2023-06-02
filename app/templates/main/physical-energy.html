@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Manergy</div>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="pysical-container">
+    <section class="physical-health">
+        <h2>Physical Health</h2>
+      
+        <div class="daily-tracking">
+          <div class="image-container">
+            <img src="/images/time-audit.jpg" alt="activities" class="activity-image">
+          </div>
+          <div class="form-container">
+            <div class="form-header">
+              <h3 class="form-heading">Daily Activity Tracking</h3>
+            </div>
+            <form id="time-audit-form">
+              <div class="form-group">
+                <label for="activity-input">Activity:</label>
+                <input type="text" id="activity-input" name="activity" required>
+              </div>
+        
+              <div class="form-group">
+                <label for="time-input">Time spent (in minutes):</label>
+                <input type="number" id="time-input" name="time" min="0" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="location-input">Location:</label>
+                <input type="text" id="location-input" name="location" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="distance-input">Distance (in miles):</label>
+                <input type="number" id="distance-input" name="distance" min="0" step="0.01" required>
+              </div>
+        
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+        
+      
+        <div class="activity-prompts">
+          <h3>Activity Prompts</h3>
+          <p>Receive prompts every 30 minutes to record your activities:</p>
+          <div id="activity-prompt">
+            <!-- Display the current activity prompt here -->
+            <p id="current-activity-prompt">Prompt: Stretch your legs and take a short walk.</p>
+          </div>
+          <button id="record-activity-btn">Record Activity</button>
+        </div>
+      
+        <div class="activity-recommendations">
+          <h3>Activity Recommendations</h3>
+          <p>Get recommendations based on your time audit, using the Eisenhower Matrix:</p>
+          <div id="recommendations">
+            <!-- Display the recommendations based on the time audit here -->
+          </div>
+        </div>
+
+        <div class="recommendations-container">
+        <div class="morning-routines">
+          <h3>Morning Routines</h3>
+          <p>Get suggestions for light morning routines to awaken your mental and physical states:</p>
+          <div id="morning-routines">
+            <!-- Display the suggestions for morning routines here -->
+            <ul>
+              <li>
+                <div class="recommendation-box">
+                  <img src="/images/Stretching-exercise.jpg" alt=""> Stretching exercises
+                </div>
+              </li>
+              <li>
+                <div class="recommendation-box">
+                  <img src="/images/Meditation or mindfulness practice.jpg" alt=""> Meditation or mindfulness practice
+                </div>
+              </li>
+              <li>
+                <div class="recommendation-box">
+                  <img src="/images/Light cardio workout.jpg" alt=""> Light cardio workout
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="food-recommendations">
+          <h3>Food Recommendations</h3>
+          <p>Receive food recommendations based on your work assessment survey:</p>
+          <div id="food-recommendations">
+            <!-- Display the food recommendations based on the survey here -->
+            <ul>
+              <li>
+                <div class="recommendation-box">
+                  <img src="/images/Grilled chicken salad.jpg" alt=""> Grilled chicken salad
+                </div>
+              </li>
+              <li>
+                <div class="recommendation-box">
+                  <img src="/images/Vegetable stir-fry with tofu.jpg" alt=""> Vegetable stir-fry with tofu
+                </div>
+              </li>
+              <li>
+                <div class="recommendation-box">
+                  <img src="/images/Quinoa and roasted vegetable bowl.jpg" alt=""> Quinoa and roasted vegetable bowl
+                </div>
+              </li>
+            </ul>
+          </div>
+          </div>
+          </div>
+        </div>
+
+    </section>
+  </div> 
+  
+  <script src="/main.js"></script>
+</body>
+</html>
