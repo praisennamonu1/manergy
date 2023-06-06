@@ -15,3 +15,8 @@ def mental_energy():
     print(videos)
 
     return render_template('main/mental-energy.html', videos=videos)
+
+
+@main_bp.route('/physical-energy', methods=['GET', 'POST'])
+def physical_energy():
+    return render_template('main/physical-energy.html')
