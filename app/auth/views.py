@@ -1,13 +1,12 @@
 from . import auth_bp
 from flask import render_template, request, redirect, url_for, flash
 from ..models import User, db
-from flask_login import login_user, current_user
+from flask_login import login_user
 
 
 @auth_bp.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('auth/login.html')
-
 
 @auth_bp.post('/signup')
 def signup():
