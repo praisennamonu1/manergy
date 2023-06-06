@@ -1,12 +1,13 @@
 from . import auth_bp
 from flask import render_template, request, redirect, url_for, flash
-from ..models import User
-from flask_login import login_user
+from ..models import User, db
+from flask_login import login_user, current_user
 
 
 @auth_bp.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('auth/login.html')
+
 
 @auth_bp.post('/signup')
 def signup():
@@ -29,7 +30,7 @@ def signup():
             # log user in
             login_user(new_user)
             # redirect to dashboard
-            return redirect(url_for('main.index'))
+            return redirect(url_for('main.dashboard'))
     else:
         # handle invalid form data
         flash('Please fill in all the required fields.', 'error')
