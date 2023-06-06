@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Manergy | Physical Energy</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 <body>
   <header>
     <nav>
       <div class="logo">Manergy</div>
       <ul>
-        <li><a href="/index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <div class="pysical-container">
+  <div class="physical-container">
     <section class="physical-health">
         <h2>Physical Health</h2>
       
         <div class="daily-tracking">
           <div class="image-container">
-            <img src="/images/time-audit.jpg" alt="activities" class="activity-image">
+            <img src="{{url_for('static', filename='/images/time-audit.jpg')}}" alt="activities" class="activity-image">
           </div>
           <div class="form-container">
             <div class="form-header">
@@ -34,7 +34,7 @@
             <form id="time-audit-form">
               <div class="form-group">
                 <label for="activity-input">Activity:</label>
-                <input type="text" id="activity-input" name="activity" required>
+                <input type="text" id="activity-input" name="activity_name" required>
               </div>
         
               <div class="form-group">
@@ -51,7 +51,6 @@
                 <label for="distance-input">Distance (in miles):</label>
                 <input type="number" id="distance-input" name="distance" min="0" step="0.01" required>
               </div>
-        
               <button type="submit">Submit</button>
             </form>
           </div>
@@ -67,7 +66,7 @@
           </div>
           <button id="record-activity-btn">Record Activity</button>
         </div>
-      
+
         <div class="activity-recommendations">
           <h3>Activity Recommendations</h3>
           <p>Get recommendations based on your time audit, using the Eisenhower Matrix:</p>
@@ -85,23 +84,23 @@
             <ul>
               <li>
                 <div class="recommendation-box">
-                  <img src="/images/Stretching-exercise.jpg" alt=""> Stretching exercises
+                  <img src="{{url_for('static', filename='/images/Stretching-exercise.jpg')}}" alt=""> Stretching exercises
                 </div>
               </li>
               <li>
                 <div class="recommendation-box">
-                  <img src="/images/Meditation or mindfulness practice.jpg" alt=""> Meditation or mindfulness practice
+                  <img src="{{url_for('static', filename='/images/Meditation or mindfulness practice.jpg')}}" alt=""> Meditation or mindfulness practice
                 </div>
               </li>
               <li>
                 <div class="recommendation-box">
-                  <img src="/images/Light cardio workout.jpg" alt=""> Light cardio workout
+                  <img src="{{url_for('static', filename='/images/Light cardio workout.jpg')}}" alt=""> Light cardio workout
                 </div>
               </li>
             </ul>
           </div>
         </div>
-      
+
         <div class="food-recommendations">
           <h3>Food Recommendations</h3>
           <p>Receive food recommendations based on your work assessment survey:</p>
@@ -110,17 +109,17 @@
             <ul>
               <li>
                 <div class="recommendation-box">
-                  <img src="/images/Grilled chicken salad.jpg" alt=""> Grilled chicken salad
+                  <img src="{{url_for('static', filename='/images/Grilled chicken salad.jpg')}}" alt=""> Grilled chicken salad
                 </div>
               </li>
               <li>
                 <div class="recommendation-box">
-                  <img src="/images/Vegetable stir-fry with tofu.jpg" alt=""> Vegetable stir-fry with tofu
+                  <img src="{{url_for('static', filename='/images/Vegetable stir-fry with tofu.jpg')}}" alt=""> Vegetable stir-fry with tofu
                 </div>
               </li>
               <li>
                 <div class="recommendation-box">
-                  <img src="/images/Quinoa and roasted vegetable bowl.jpg" alt=""> Quinoa and roasted vegetable bowl
+                  <img src="{{url_for('static', filename='/images/Quinoa and roasted vegetable bowl.jpg')}}" alt=""> Quinoa and roasted vegetable bowl
                 </div>
               </li>
             </ul>
@@ -132,6 +131,6 @@
     </section>
   </div> 
   
-  <script src="/main.js"></script>
+  <script src="{{url_for('static', filename='js/main.js')}}"></script>
 </body>
 </html>
