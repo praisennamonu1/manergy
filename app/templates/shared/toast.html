@@ -1,0 +1,17 @@
+{% for category, message in get_flashed_messages(with_categories=True)[:1] %}
+<div class="toast-card {{'error' if category == 'error' else 'success'}}" role="alert">
+    <p class="toast-title">{{(category if category == 'error' else 'success')|title}}</p>
+    <p class="toast-body">{{ message|safe }}</p>
+    <i class='bx bx-x'></i>
+    <script>
+        const cancelBtn = document.querySelector('.toast-card i.bx-x');
+        
+        cancelBtn.addEventListener('click', (e) => {
+            e.cancelBubble = true;
+            
+            // close the toast card
+            e.target.parentElement.style.display = 'none';
+        })
+    </script>
+</div>
+{% endfor %}

@@ -1,7 +1,7 @@
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from ..models import Video
-from pprint import pprint
+from flask import flash
 import os
 
 
@@ -21,40 +21,46 @@ class MainController:
 
     def fetch_yt_videos(self, search_kw):
         """Fetch youtube videos related to the search keyword."""
+        try:
+            # fetch the items matching the query keyword passed.
+            search_res = self.youtube_build.search().list(
+                q=search_kw, part='id,snippet'
+            ).execute()
 
-        # fetch the items matching the query keyword passed.
-        search_res = self.youtube_build.search().list(
-            q=search_kw, part='id,snippet'
-        ).execute()
+            for search_item in search_res.get('items', []):
+                if search_item['id']['kind'] == 'youtube#video':
+                    video_data = {}
 
-        for search_item in search_res.get('items', []):
-            if search_item['id']['kind'] == 'youtube#video':
-                video_data = {}
+                    # extract thumbnail url
+                    thumbnail = search_item.get('snippet', {}).get(
+                        'thumbnails', {}).get('default')
+                    if thumbnail:
+                        video_data['thumbnail'] = thumbnail['url']
+                    
+                    # extract video url
+                    video_url = search_item.get('id', {}).get('videoId')
+                    if video_url:
+                        video_data['url'] = 'https://www.youtube.com/embed/' + video_url
+                    
+                    # extract video title
+                    video_title = search_item.get('snippet', {}).get('title')
+                    if video_title:
+                        video_data['title'] = video_title
+                    
+                    # extract video description
+                    video_description = search_item.get('snippet', {}).get(
+                        'description')
+                    if video_description:
+                        video_data['desc'] = video_description
+                    # add video to the list
+                    self.videos.append(video_data)
+        except Exception as e:
+            message = str(e)
 
-                # extract thumbnail url
-                thumbnail = search_item.get('snippet', {}).get(
-                    'thumbnails', {}).get('default')
-                if thumbnail:
-                    video_data['thumbnail'] = thumbnail['url']
-                
-                # extract video url
-                video_url = search_item.get('id', {}).get('videoId')
-                if video_url:
-                    video_data['url'] = 'https://www.youtube.com/embed/' + video_url
-                
-                # extract video title
-                video_title = search_item.get('snippet', {}).get('title')
-                if video_title:
-                    video_data['title'] = video_title
-                
-                # extract video description
-                video_description = search_item.get('snippet', {}).get(
-                    'description')
-                if video_description:
-                    video_data['desc'] = video_description
+            if type(e) is HttpError:
+                message = e.reason
 
-                print(f'Appending video data: {video_data}')
-                self.videos.append(video_data)
+            flash(message, 'error')
     
     def get_videos(self):
         """Extract all videos from the database."""

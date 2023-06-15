@@ -1,310 +1,243 @@
 /* styles.css */
-
-/* Global Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Header Styles */
-  header {
-    background-color: #f5f5f5;
-    padding: 10px 0;
-  }
-  
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    background-color: #3AAAA4;
-    padding: 20px 30px;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-left: 10px;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #333;
-    padding: 5px 10px;
-    border-radius: 4px;
-  }
-
-  nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  /* Hero Section Styles */
-  .hero {
-    background-color: #f8f8f8;
-    padding: 80px 0;
-    text-align: center;
-  }
-  
-  .hero-content {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .hero h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  .hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    color: #666;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3AAAA4;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-  
-  .btn:hover {
-    background-color: #429e9a;
-  }
-  
-  /* Features Section Styles */
-  .features {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 60px;
-    margin-bottom: 60px;
-  }
-  
-  .feature {
-    max-width: 300px;
-    text-align: center;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .feature img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 20px;
-  }
-  
-  .feature h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .feature p {
-    color: #666;
-  }
-
-  .features a {
-    text-decoration: none;
-  }
-
-  .feature:hover {
-    background-color: #3aaaa428;
-  }
-
-
-  /* Mental Energy */
-  .videos {
-    text-align: center;
-    padding: 40px 0;
-  }
-  
-  .video-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
-    justify-items: center;
-    padding: 0 30px;
-  }
-  
-  .video {
-    position: relative;
-    width: 100%;
-    padding-bottom: 0;
-    overflow: hidden;
-  }
-  
-  .video h3 {
-    margin: 10px 0;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .video p {
-    margin: 0;
-    font-size: 14px;
-    color: #888;
-  }
-  
-  .tips {
-    margin: 30px 0;
-    padding: 0 30px;
-    text-align: center;
-  }
-  
-  .tips h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .tips ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .tips li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .tips li img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 20px;
-  }
-  
-  .tips li span {
-    font-size: 18px;
-    line-height: 1.5;
-  }
-  
-  /* Optional: Add hover effect */
-  .tips li:hover {
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-
-  
-  /* Footer Styles */
-  footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-  }
-  
-  /* Media Queries */
-  @media screen and (max-width: 768px) {
-    .hero h1 {
-      font-size: 28px;
-    }
-  
-    .hero p {
-      font-size: 16px;
-    }
-  
-    .features {
-      flex-wrap: wrap;
-    }
-  
-    .feature {
-      margin-bottom: 30px;
-    }
-  }
-  
-
-
-
-  /* Styles for the physical health section */
-  /* General Styles */
-.physical-health section {
-  font-family: Arial, sans-serif;
-  color: #333;
-  line-height: 1.6;
-  padding-left: 200px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/*.pysical-container {
-  max-width: 1200px;  Adjust the maximum width as desired */
-  /*margin: 0 auto;
-  padding: 0 20px;
-}*/
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .hero h1 {
+    font-size: 28px;
+  }
 
-/* Physical Health Section */
+  .hero p {
+    font-size: 16px;
+  }
 
-.physical-health {
-  background-color: #f5f5f5;
-  padding: 20px 40px;
-  border-radius: 5px;
+  .features {
+    flex-wrap: wrap;
+  }
+
+  .feature {
+    margin-bottom: 30px;
+  }
+}
+
+/* Hero Section Styles */
+.hero {
+  background-color: #f8f8f8;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 36px;
   margin-bottom: 20px;
 }
 
-.physical-health h3 {
-  margin-top: 0;
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3aaaa4;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #429e9a;
+}
+
+/* Features Section Styles */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.feature {
+  max-width: 300px;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.feature img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.feature h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.feature p {
+  color: #666;
+}
+
+.features a {
+  text-decoration: none;
+}
+
+.feature:hover {
+  background-color: #3aaaa428;
+}
+
+/* Mental Energy */
+.videos-section {
+  text-align: center;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.videos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.video {
+  position: relative;
+  width: 100%;
+}
+
+.video > iframe {
+    width: 100%;
+}
+
+.video h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.video p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.tips {
+  margin: 30px 0;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.tips h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.tips ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tips li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tips li img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.tips li span {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Optional: Add hover effect */
+.tips li:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the physical health section */
+/* General Styles */
+.physical-health section {
+  
+  color: #333;
+  line-height: 1.6;
+}
+
+.physical-health {
+  background-color: #f5f5f5;
+  padding: 2rem 1rem;
+}
+
+.physical-health h2 {
+  margin-bottom: 2rem;
+  font-size: calc(1.5rem + 1.5vmin);
+  text-align: center;
 }
 
 .daily-tracking {
   display: flex;
-  align-items: center;
-}
-
-.image-container {
-  flex: 0 0 auto;
-  margin-right: 20px;
-}
-
-.activity-image {
-  max-width: 85%;
-  height: auto;
+  flex-wrap: wrap;
 }
 
 .form-container {
-  flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 2;
+    background-color: #3aaaa428;
+    padding: 1rem;
+    flex-basis: 500px;
 }
 
-.form-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+#time-audit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem calc(1rem + .5vmin);
+    background-color: #fff;
+    border-radius: 5px;
 }
 
-.form-heading {
-  font-size: 24px;
-  margin-left: 70px;
+.image-container {
+    flex-grow: 1;
+    /* margin: auto; */
+    border-radius: 5px;
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
-form {
-  padding-right: 260px;
+.image-container img {
+    width: 100%;
+    border-radius: inherit;
+    max-height: 600px;
+    object-fit: cover;
 }
 
+#time-audit-form .form-group {
+    flex-grow: 1;
+}
 
 label {
   display: block;
@@ -325,7 +258,7 @@ button[type="submit"] {
   padding: 12px 20px;
   border-radius: 4px;
   border: none;
-  background-color: #3AAAA4;
+  background-color: #3aaaa4;
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -335,16 +268,9 @@ button[type="submit"]:hover {
   background-color: #32c0b9;
 }
 
-form {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-
-
 button[type="submit"],
 #record-activity-btn {
-  background-color: #3AAAA4;
+  background-color: #3aaaa4;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -386,7 +312,7 @@ button[type="submit"]:hover,
 }
 
 #record-activity-btn {
-  background-color: #3AAAA4;
+  background-color: #3aaaa4;
   color: #ffffff;
   padding: 10px 20px;
   border: none;
@@ -417,7 +343,6 @@ button[type="submit"]:hover,
   border: 1px solid #eaeaea;
   border-radius: 4px;
 }
-
 
 .activity-recommendations ul,
 .food-recommendations ul,
@@ -474,9 +399,6 @@ button[type="submit"]:hover,
   vertical-align: middle;
 }
 
-
-
-  
 /* Responsive Styles */
 @media screen and (max-width: 600px) {
   .container {

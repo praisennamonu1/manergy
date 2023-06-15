@@ -1,58 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manergy | Mental Energy</title>
+{% extends "base.html" %}
+{% block tab_title %}Mental Energy{% endblock %}
+{% block stylesheets %}
+    {{ super() }}
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
-</head>
-<body>
-    <!-- Add your header code here -->
-  <header>
-    <nav>
-      <div class="logo">Manergy</div>
-      <ul>
-        <li><a href="{{url_for('main.index')}}">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section class="videos">
-    <h2>Videos</h2>
-    <div class="video-container">
-      {% for video in videos %}
-        <div class="video">
-          <iframe width="560" height="315" src="{{video.url}}" title="{{video.title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <h3>{{video.title|safe}}</h3>
-          <p>{{video.desc}}</p>
+{% endblock %}
+{% block content %}
+    <section class="videos-section">
+        <h2>Videos</h2>
+        <div class="videos-container">
+        {% for video in videos %}
+            <div class="video">
+                <iframe width="560" height="315" src="{{video.url}}" title="{{video.title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <h3>{{video.title|safe}}</h3>
+                <p>{{video.desc}}</p>
+            </div>
+        {% endfor %}
         </div>
-      {% endfor %}
-    </div>
-  </section>
-  <section class="tips">
-    <h2>Tips</h2>
-    <ul>
-        <li>
-            <img src="{{url_for('static', filename='images/breathing-exercise.avif')}}" alt="Image 1">
-            <span>Practice deep breathing exercises to reduce stress and calm your mind.</span>
-          </li>
-          <li>
-            <img src="{{url_for('static', filename='images/physical-energy-icon.avif')}}" alt="Image 2">
-            <span>Engage in regular physical exercise to boost your mood and improve mental well-being.</span>
-          </li>
-          <li>
-            <img src="{{url_for('static', filename='images/self-care.avif')}}" alt="Image 3">
-            <span>Prioritize self-care activities such as getting enough sleep and practicing relaxation techniques.</span>
-          </li>
-    </ul>
-  </section>
-
-  <!-- Add your footer code here -->
-  <footer>
-    <p>&copy; 2023 Manergy. All rights reserved.</p>
-  </footer>
-
-</body>
-</html>
+    </section>
+    <section class="tips">
+        <h2>Tips</h2>
+        <ul>
+            <li>
+                <img src="{{url_for('static', filename='images/breathing-exercise.avif')}}" alt="Image 1">
+                <span>Practice deep breathing exercises to reduce stress and calm your mind.</span>
+            </li>
+            <li>
+                <img src="{{url_for('static', filename='images/physical-energy-icon.avif')}}" alt="Image 2">
+                <span>Engage in regular physical exercise to boost your mood and improve mental well-being.</span>
+            </li>
+            <li>
+                <img src="{{url_for('static', filename='images/self-care.avif')}}" alt="Image 3">
+                <span>Prioritize self-care activities such as getting enough sleep and practicing relaxation techniques.</span>
+            </li>
+        </ul>
+    </section>
+{% endblock %}

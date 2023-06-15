@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    position: relative;
+}
+
+a {
+    color: #2B4D4E;
+}
+
+/* Toast Styles */
+.toast-card {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    padding: .3rem .5rem .4rem;
+    background-color: #fff;
+    border-radius: 3px;
+    font-weight: 500;
+    z-index: 10;
+}
+
+.toast-card .toast-title {
+    font-weight: 900;
+    font-size: calc(.8rem + .5vmin);
+    margin-bottom: .5rem;
+    text-decoration: 3px underline;
+}
+
+.toast-card.error {
+    color: #ff2148;
+    border-left: 3px solid #ff2148;
+}
+
+.toast-card.success {
+    color: #3aaaa4;
+    border-left: 3px solid #3aaaa4;
+}
+
+.toast-card > i.bx-x {
+    font-size: calc(1.2rem + 1vmin);
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Header Styles */
+header {
+  background-color: #3aaaa4;
+  padding: 0 1rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.2rem .5rem;
+}
+
+.udeme {
+  height: calc(5rem + 2vmin);
+  width: calc(8rem + 2vmin);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+}
+
+nav ul li {
+  display: inline;
+  background-color: #fff;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+}
+
+nav ul li a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #333;
+  border-radius: 4px;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Footer Styles */
+footer {
+  background: linear-gradient(90deg, #3AAAA4, #2B4D4E);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}

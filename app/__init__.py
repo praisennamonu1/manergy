@@ -27,6 +27,7 @@ def create_app():
     # Initialize the database and extensions
     db.init_app(app)
     login_mgr.init_app(app)
+    login_mgr.login_view = 'auth.index'
     migrate.init_app(app, db)
 
     # Register your blueprints here
