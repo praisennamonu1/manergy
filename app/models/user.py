@@ -99,7 +99,7 @@ class User(UserMixin, Base):
     birth_date = db.Column(db.Date())
     gender = db.Column(db.String(16))
     occupation = db.Column(db.String(64))
-    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+    role_id = db.Column(db.String(128), db.ForeignKey('roles.id'))
 
     # relationships
     tasks = db.relationship('Task', backref='user', lazy='dynamic')
