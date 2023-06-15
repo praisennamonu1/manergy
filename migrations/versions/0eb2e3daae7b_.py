@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 6151f9f03122
+Revision ID: 0eb2e3daae7b
 Revises: 
-Create Date: 2023-05-12 13:31:27.728267
+Create Date: 2023-06-15 12:08:42.277524
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '6151f9f03122'
+revision = '0eb2e3daae7b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,7 +23,7 @@ def upgrade():
     sa.Column('default', sa.Boolean(), nullable=True),
     sa.Column('permissions', sa.Integer(), nullable=True),
     sa.Column('id', sa.String(length=128), nullable=False),
-    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('slugname', sa.String(length=255), nullable=True),
     sa.PrimaryKeyConstraint('id'),
@@ -40,14 +40,25 @@ def upgrade():
     sa.Column('birth_date', sa.Date(), nullable=True),
     sa.Column('gender', sa.String(length=16), nullable=True),
     sa.Column('occupation', sa.String(length=64), nullable=True),
-    sa.Column('role_id', sa.Integer(), nullable=True),
+    sa.Column('role_id', sa.String(length=128), nullable=True),
     sa.Column('id', sa.String(length=128), nullable=False),
-    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('slugname', sa.String(length=255), nullable=True),
     sa.ForeignKeyConstraint(['role_id'], ['roles.id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email')
+    )
+    op.create_table('achievements',
+    sa.Column('user_id', sa.String(length=128), nullable=False),
+    sa.Column('name', sa.String(length=32), nullable=False),
+    sa.Column('desc', sa.String(length=128), nullable=True),
+    sa.Column('id', sa.String(length=128), nullable=False),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
+    sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
+    sa.Column('slugname', sa.String(length=255), nullable=True),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('goal',
     sa.Column('user_id', sa.String(length=128), nullable=False),
@@ -55,7 +66,7 @@ def upgrade():
     sa.Column('desc', sa.String(length=512), nullable=False),
     sa.Column('deadline', sa.DateTime(timezone=True), nullable=False),
     sa.Column('id', sa.String(length=128), nullable=False),
-    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('slugname', sa.String(length=255), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
@@ -71,7 +82,7 @@ def upgrade():
     sa.Column('time_required', sa.Time(), nullable=False),
     sa.Column('time_consumed', sa.Time(), nullable=True),
     sa.Column('id', sa.String(length=128), nullable=False),
-    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('slugname', sa.String(length=255), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
@@ -89,15 +100,44 @@ def upgrade():
     sa.Column('time_consumed', sa.Time(), nullable=True),
     sa.Column('deadline', sa.DateTime(timezone=True), nullable=False),
     sa.Column('id', sa.String(length=128), nullable=False),
-    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('slugname', sa.String(length=255), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('videos',
+    sa.Column('user_id', sa.String(length=128), nullable=True),
+    sa.Column('thumbnail', sa.String(length=256), nullable=True),
+    sa.Column('url', sa.String(length=256), nullable=False),
+    sa.Column('title', sa.String(length=128), nullable=False),
+    sa.Column('desc', sa.String(length=512), nullable=True),
+    sa.Column('duration', sa.Integer(), nullable=True),
+    sa.Column('keyword', sa.String(length=32), nullable=True),
+    sa.Column('id', sa.String(length=128), nullable=False),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
+    sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
+    sa.Column('slugname', sa.String(length=255), nullable=True),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='SET NULL'),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('url')
+    )
+    op.create_table('feedbacks',
+    sa.Column('user_id', sa.String(length=128), nullable=False),
+    sa.Column('task_id', sa.String(length=128), nullable=False),
+    sa.Column('rating', sa.Integer(), nullable=False),
+    sa.Column('comment', sa.String(length=256), nullable=True),
+    sa.Column('id', sa.String(length=128), nullable=False),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
+    sa.Column('updated_at', sa.DateTime(timezone=True), nullable=True),
+    sa.Column('slugname', sa.String(length=255), nullable=True),
+    sa.ForeignKeyConstraint(['task_id'], ['tasks.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
+    sa.PrimaryKeyConstraint('id')
+    )
     op.create_table('task_routine',
-    sa.Column('task_id', sa.Integer(), nullable=False),
-    sa.Column('routine_id', sa.Integer(), nullable=False),
+    sa.Column('task_id', sa.String(length=128), nullable=False),
+    sa.Column('routine_id', sa.String(length=128), nullable=False),
     sa.ForeignKeyConstraint(['routine_id'], ['routines.id'], ),
     sa.ForeignKeyConstraint(['task_id'], ['tasks.id'], ),
     sa.PrimaryKeyConstraint('task_id', 'routine_id')
@@ -108,9 +148,12 @@ def upgrade():
 def downgrade():
     # ### commands auto generated by Alembic - please adjust! ###
     op.drop_table('task_routine')
+    op.drop_table('feedbacks')
+    op.drop_table('videos')
     op.drop_table('tasks')
     op.drop_table('routines')
     op.drop_table('goal')
+    op.drop_table('achievements')
     op.drop_table('users')
     with op.batch_alter_table('roles', schema=None) as batch_op:
         batch_op.drop_index(batch_op.f('ix_roles_default'))
