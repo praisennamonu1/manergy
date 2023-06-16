@@ -2,9 +2,9 @@
 A web application that helps users manage their energy to increase their efficiency and productivity.
 
 ## Features
-- Conservation of mental energy
-- Conservation of physical energy
-- Conservation of time
+- Conservation of mental energy allows the user to be able to keep track of their mental energy
+- Conservation of physical energy allows the user to be able to keep track of their physical energy
+- Conservation of time allows the user to be able to keep track of their time
 
 ## Link to the live website
 https://manergy.onrender.com/
