@@ -34,9 +34,9 @@ class TaskPriority(Enum):
 
 
 task_routine = db.Table('task_routine',
-                        db.Column('task_id', db.Integer, db.ForeignKey(
+                        db.Column('task_id', db.String(128), db.ForeignKey(
                             'tasks.id'), primary_key=True),
-                        db.Column('routine_id', db.Integer, db.ForeignKey(
+                        db.Column('routine_id', db.String(128), db.ForeignKey(
                             'routines.id'), primary_key=True)
                         )
 
