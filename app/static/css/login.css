@@ -35,7 +35,7 @@
     width: 50%;
     display: grid;
     grid-template-columns: 1fr;
-    z-index: 5;
+    z-index: 20;
     transition: 1s 0.7s ease-in-out;
 }
 
